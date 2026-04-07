@@ -52,10 +52,3 @@ JS-Temperature-Converter/
 
 ---
 
-## Author
-
-**Anthony North**  
-Date: February 4, 2026  
-State College of Florida  
-Course: Web Development / JavaScript  
-Chapter: 2
