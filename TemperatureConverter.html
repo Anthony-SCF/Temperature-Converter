@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hands-On Project 2-1: Temperature Converter</title>
+    <style>
+        /* CSS for a modern, engaging look (Figure 2-30 style) */
+        body { 
+            background-color: #eef2f3; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        article { 
+            width: 350px; 
+            background: #ffffff; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+        }
+        h1 { 
+            text-align: center; 
+            color: #34495e; 
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+        fieldset { 
+            border: 2px solid #3498db; 
+            margin-bottom: 20px; 
+            border-radius: 8px; 
+            padding: 10px;
+        }
+        legend { 
+            font-weight: bold; 
+            color: #2980b9; 
+            padding: 0 10px;
+        }
+        input { 
+            width: 100%; 
+            padding: 10px; 
+            font-size: 1.2rem; 
+            border: none; 
+            outline: none; 
+            text-align: center;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <h1>Temperature Converter</h1>
+        <form>
+            <fieldset id="f-scale">
+                <legend>Fahrenheit (&#176;F)</legend>
+                <input type="number" id="fValue" placeholder="Enter Temp">
+            </fieldset>
+
+            <fieldset id="c-scale">
+                <legend>Celsius (&#176;C)</legend>
+                <input type="number" id="cValue" placeholder="Enter Temp">
+            </fieldset>
+        </form>
+    </article>
+
+    <script>
+        /* Hands-On Project 2-1
+           Author: Anthony North
+           Date: 2/4/26
+           Description: This script calculates temperature conversions 
+           using event listeners and arithmetic expressions.
+        */
+
+        // Function to convert Fahrenheit to Celsius
+        function convertFtoC(fDegree) {
+            // Formula: (F - 32) / 1.8
+            return (fDegree - 32) / 1.8;
+        }
+
+        // Function to convert Celsius to Fahrenheit
+        function convertCtoF(cDegree) {
+            // Formula: (C * 1.8) + 32
+            return (cDegree * 1.8) + 32;
+        }
+
+        // Event Listener for Fahrenheit Input
+        // The "onchange" event triggers when the user leaves the box (e.g., presses Tab)
+        document.getElementById("fValue").onchange = function() {
+            let fTemp = document.getElementById("fValue").value;
+            // Update the Celsius box with the result, rounded to 2 decimals
+            document.getElementById("cValue").value = convertFtoC(fTemp).toFixed(2);
+        };
+
+        // Event Listener for Celsius Input
+        document.getElementById("cValue").onchange = function() {
+            let cTemp = document.getElementById("cValue").value;
+            // Update the Fahrenheit box with the result, rounded to 2 decimals
+            document.getElementById("fValue").value = convertCtoF(cTemp).toFixed(2);
+        };
+    </script>
+</body>
+</html>
